@@ -39,5 +39,6 @@ jobs:
     steps:
       - run: pwd
       - run: ls
+      - uses: actions/upload-artifact@v2
       - name: run main
-        run: java java Main
+        run: java Main

@@ -42,6 +42,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: ${{ github.workspace }}
+          path: ${{ github.workspace }}/Main.class
       - name: run main
         run: java Main

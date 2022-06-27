@@ -39,7 +39,7 @@ jobs:
     steps:
       - run: pwd
       - run: ls
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         path: ${{ github.workspace }}
       - name: run main
         run: java Main

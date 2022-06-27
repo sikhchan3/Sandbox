@@ -37,6 +37,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      -  run: pwd
+      - run: pwd
+      - run: ls
       - name: run main
         run: java java Main

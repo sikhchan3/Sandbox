@@ -38,4 +38,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run main
-        run: java Main
+        run: java ./Main

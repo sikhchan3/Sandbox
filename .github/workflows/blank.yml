@@ -27,6 +27,6 @@ jobs:
       - run: pwd
       - run: ls -a
       - name: run main
-        run: java -cp java Main
+        run: java Main
       - run: pwd
       - run: ls -a

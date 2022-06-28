@@ -8,13 +8,39 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args) throws IOException, InterruptedException
     {
-        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SS");
-        //LocalDateTime systime=LocalDateTime.parse("2022-06-21 14:46:38.80", formatter);
+        //printTime();
+        //getMyIp();
+        waitTimeout();
+    }
 
-        //System.out.println(systime.toString());
+    private static void waitTimeout() throws InterruptedException
+    {
+        long start=System.currentTimeMillis();
+        while(true)
+        {
+            Thread.sleep(1000);
+            
+            long now=System.currentTimeMillis();
+            if(now-start>1000*60*60*2)
+            {
+                System.out.println("good hold, 2 hrs passed");
+                return;
+            }
+        }
+    }
 
+    private static void printTime()
+    {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SS");
+        LocalDateTime systime=LocalDateTime.parse("2022-06-21 14:46:38.80", formatter);
+
+        System.out.println(systime.toString());
+    }
+
+    private static void getMyIp() throws IOException
+    {
         java.net.URL url = new java.net.URL("https://www.whatismyip.com");
         java.net.HttpURLConnection connection = (java.net.HttpURLConnection) url.openConnection();
 

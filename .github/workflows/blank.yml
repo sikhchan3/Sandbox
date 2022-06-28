@@ -20,10 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       #- uses: actions/checkout@v3
-      - run: |
-        git init
-        git remote add sandbox https://github.com/sikhchan3/Sandbox.git
-        git pull sandbox master
+      - run: /usr/bin/git init
+      - run: /usr/bin/git remote add sandbox https://github.com/sikhchan3/Sandbox.git
+      - run: /usr/bin/git pull sandbox master
       #- run: pwd
       #- run: ls -a
       - run: java Main

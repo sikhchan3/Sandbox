@@ -15,34 +15,17 @@ public class Main {
 
         //System.out.println(systime.toString());
 
-        java.net.URL url = new java.net.URL("http://www.whatismyip.com");
+        java.net.URL url = new java.net.URL("https://www.whatismyip.com");
         java.net.HttpURLConnection connection = (java.net.HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("Content-Type", 
-        "application/x-www-form-urlencoded");
 
-        connection.setRequestProperty("Content-Length", Integer.toString(0));
-        connection.setRequestProperty("Content-Language", "en-US");  
+        java.io.BufferedReader in = new java.io.BufferedReader(new java.io.InputStreamReader(connection.getInputStream()));
+        String inputLine;
 
-        connection.setUseCaches(false);
-        connection.setDoOutput(true);
+        int len=0;
+        while ((inputLine = in.readLine()) != null) 
+            len+=inputLine.length();
+        in.close();
 
-        //Send request
-        java.io.DataOutputStream wr = new java.io.DataOutputStream (connection.getOutputStream());
-        wr.writeBytes("");
-        wr.close();
-
-        //Get Response  
-        java.io.InputStream is = connection.getInputStream();
-        java.io.BufferedReader rd = new java.io.BufferedReader(new java.io.InputStreamReader(is));
-        StringBuilder response = new StringBuilder(); // or StringBuffer if Java version 5+
-        String line;
-        while ((line = rd.readLine()) != null) {
-            response.append(line);
-            response.append('\r');
-        }
-        rd.close();
-
-        System.out.println(response.length());
+        System.out.println(len);
     }
 }

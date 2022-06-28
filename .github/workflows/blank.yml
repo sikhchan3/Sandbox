@@ -12,6 +12,11 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      inp:
+        description: 'input 1'     
+        required: true
+        default: 'in1'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,6 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       #- uses: actions/checkout@v3
+      - run: echo "${{ github.event.inputs.inp }}"
       - run: /usr/bin/git init
       - run: /usr/bin/git remote add sandbox https://github.com/sikhchan3/Sandbox.git
       - run: /usr/bin/git pull sandbox master

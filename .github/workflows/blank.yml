@@ -32,4 +32,4 @@ jobs:
       #- run: pwd
       #- run: ls -a
       - run: java Main
-      - run: git commit --amend -m "New commit message"
+      #- run: git commit --amend -m "New commit message"

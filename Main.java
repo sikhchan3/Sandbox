@@ -17,6 +17,7 @@ public class Main {
 
     private static void waitTimeout() throws InterruptedException
     {
+        long checkedtimes=0;
         long start=System.currentTimeMillis();
         while(true)
         {
@@ -25,9 +26,10 @@ public class Main {
             long now=System.currentTimeMillis();
             if(now-start>1000*60*60*2)
             {
-                System.out.println("good hold, 2 hrs passed");
+                System.out.println("good hold, 2 hrs passed, checked times="+checkedtimes);
                 return;
             }
+            checkedtimes++;
         }
     }
 

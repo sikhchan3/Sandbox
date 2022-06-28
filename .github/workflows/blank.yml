@@ -35,3 +35,4 @@ jobs:
       - run: git config --global user.email "email@email.com"
       - run: git config --global user.name "Your Name"
       - run: git commit --amend -m "New commit message"
+      - run: git push sandbox master

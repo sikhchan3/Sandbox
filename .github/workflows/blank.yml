@@ -25,11 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       #- uses: actions/checkout@v3
-      - run: echo "${{ github.event.inputs.inp }}"
+      #- run: echo "${{ github.event.inputs.inp }}"
       - run: /usr/bin/git init
       - run: /usr/bin/git remote add sandbox https://github.com/sikhchan3/Sandbox.git
       - run: /usr/bin/git pull sandbox master
       #- run: pwd
       #- run: ls -a
       - run: java Main
-      #- run: git commit --amend -m "New commit message"
+      - run: git config --global user.email "email@email.com"
+      - run: git config --global user.name "Your Name"
+      - run: git commit --amend -m "New commit message"

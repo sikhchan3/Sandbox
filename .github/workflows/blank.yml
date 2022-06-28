@@ -19,8 +19,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: pwd
-      - run: ls -a
+      #- uses: actions/checkout@v3
+      - run: |
+        git init
+        git remote add sandbox https://github.com/sikhchan3/Sandbox.git
+        git pull sandbox master
+      #- run: pwd
+      #- run: ls -a
       - run: java Main
       - run: git commit --amend -m "New commit message"
